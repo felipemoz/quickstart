@@ -33,6 +33,7 @@
           - timeshift
           - mlocate
           - krita
+          - build-essential
 
     # ZSH
     - block:
