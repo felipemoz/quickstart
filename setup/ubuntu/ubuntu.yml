@@ -86,7 +86,7 @@
   
     # Spotify
     - block:
-      - name: Install Google Key
+      - name: Install Spotify
         become: true
         apt_key: 
           url: 'https://download.spotify.com/debian/pubkey.gpg'
@@ -284,6 +284,16 @@
         apt:
           name: torbrowser-launcher
     
+    # Meteo
+    - block:
+      - name: Adding Meteo
+        become: true
+        apt_repository:
+          repo: 'ppa:bitseater/ppa'
+      - name: Install Tor 
+        become: true
+        apt:
+          name: com.gitlab.bitseater.meteo
           
 # OPTIONAL:
 #  - PEEK - Lightweight Screen Recorder that can export as GIF
