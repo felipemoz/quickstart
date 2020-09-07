@@ -1,0 +1,1 @@
+clone & just run: `make install` 

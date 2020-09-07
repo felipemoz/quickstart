@@ -69,6 +69,7 @@
     # mosquitto
     - block:
       - name: 'Installing Mosquitto'
+        snap:
           name:
             - mosquitto
           classic: no
@@ -78,9 +79,10 @@
     # sublime-text 
     - block:
       - name: 'Installing Sublime'
+        snap:
           name:
             - sublime-text
-          classic: no
+          classic: yes
           channel: 'stable'
           state: present
           
@@ -88,6 +90,7 @@
     # pycharm
     - block:
       - name: 'Installing Pycharm'
+        snap:
           name:
             - pycharm-community
           classic: no
@@ -254,6 +257,7 @@
           name: code
       
       - name: Install Virtual Studio Code Extensions
+        become: false
         shell:
           cmd: code --install-extension '{{ item }}' 
         loop: 
