@@ -33,6 +33,8 @@
           - timeshift
           - mlocate
           - krita
+          - build-essential
+          - neofetch
 
     # ZSH
     - block:
@@ -82,7 +84,36 @@
         become: true
         apt:
           name: google-chrome-stable
+  
+    # Spotify
+    - block:
+      - name: Install Spotify Key
+        become: true
+        apt_key: 
+          url: 'https://download.spotify.com/debian/pubkey.gpg'
+          state: present
       
+      - name: Install Spotify
+        become: true
+        apt_repository:
+          repo: 'deb http://repository.spotify.com stable non-free'
+          state: present
+          filename: spotify-client
+
+    # Skype
+    - block:
+      - name: Install Skype Key
+        become: true
+        apt_key: 
+          url: 'https://repo.skype.com/data/SKYPE-GPG-KEY'
+          state: present
+      
+      - name: Install Skype Repository
+        become: true
+        apt_repository:
+          repo: 'deb [arch=amd64] https://repo.skype.com/deb stable main'
+          state: present
+          filename: skypeforlinux
 
     # Vagrant
     - block:
@@ -269,7 +300,20 @@
         apt:
           name: torbrowser-launcher
     
+    # Meteo
+    - block:
+      - name: Adding Meteo
+        become: true
+        apt_repository:
+          repo: 'ppa:bitseater/ppa'
+      - name: Install meteo 
+        become: true
+        apt:
+          name: com.gitlab.bitseater.meteo
           
+
+
+
 # OPTIONAL:
 #  - PEEK - Lightweight Screen Recorder that can export as GIF
 #  - OBS-STUDIO - Screen Recorder and Casting Software 
