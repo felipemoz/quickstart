@@ -35,21 +35,75 @@
           - krita
           - build-essential
           - neofetch
-    # Snaps
+    
+    # Dbeaver
     - block:
-      - name: Installing Packages using Snaps
+      - name: 'Installing Dbeaver'
         snap:
           name:
             - dbeaver-ce
+          classic: no
+          channel: 'stable'
+          state: present
+
+    # Postman
+    - block:
+      - name: 'Installing Postman'
+        snap:
+          name:
             - postman
+          classic: no
+          channel: 'stable'
+          state: present
+
+    # Powershell
+    - block:
+      - name: 'Installing Powershell w/ --classic'
+        snap:
+          name:
             - powershell
-            - sublime-text
-            - skype
+          classic: yes
+          channel: 'stable'
+          state: present
+
+    # mosquitto
+    - block:
+      - name: 'Installing Mosquitto'
+          name:
             - mosquitto
-            
+          classic: no
+          channel: 'stable'
+          state: present
+    
+    # sublime-text 
+    - block:
+      - name: 'Installing Sublime'
+          name:
+            - sublime-text
+          classic: no
+          channel: 'stable'
+          state: present
+          
+    
+    # pycharm
+    - block:
+      - name: 'Installing Pycharm'
+          name:
+            - pycharm-community
+          classic: no
+          channel: 'stable'
+          state: present
+          
+    # Skype
+    - block:
+      - name: 'Installng Skype w/ --classic'
+        snap:
+          name:
+            - skype
+          classic: yes
+          channel: 'stable'
+          state: present
 
-
-  
     # ZSH
     - block:
       - name: Verify if Oh-My-zsh is installed
